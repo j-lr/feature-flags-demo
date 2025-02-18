@@ -1,0 +1,18 @@
+{
+	"feature3Enabled": {
+		"enabled": true,
+		"rolloutPercentage": 50,
+		"abTest": {
+			"variantA": 50,
+			"variantB": 50
+		}
+	},
+	"underDevelopmentFeature": {
+		"enabled": false,
+		"rolloutPercentage": 0
+	},
+	"newUIFeature": {
+		"enabled": true,
+		"rolloutPercentage": 100
+	}
+}
