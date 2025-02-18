@@ -8,39 +8,45 @@ import { Select } from "radix-ui";
 import { forwardRef } from "react";
 
 const DropDownSelect = ({ label, options }) => (
-	<Select.Root className="relative inline-flex w-fit min-w-40 flex-col gap-1 bg-amber-900">
-		<Select.Trigger
-			className="inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] text-violet11 leading-none shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9"
-			aria-label={label}
-		>
-			<Select.Value placeholder={label} />
-			<Select.Icon className="text-violet11">
-				<ChevronDownIcon />
-			</Select.Icon>
-		</Select.Trigger>
-		<Select.Portal>
-			<Select.Content className="overflow-hidden rounded-md bg-gray-300 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
-				<Select.ScrollUpButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-violet11">
-					<ChevronUpIcon />
-				</Select.ScrollUpButton>
-				<Select.Viewport className="p-[5px]">
-					<Select.Group>
-						<Select.Label className="px-[25px] text-white text-xs leading-[25px]">
-							{label}
-						</Select.Label>
-						{options?.map(({ id, label }) => (
-							<SelectItem key={id} value={label}>
-								{label}
-							</SelectItem>
-						))}
-					</Select.Group>
-				</Select.Viewport>
-				<Select.ScrollDownButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-violet11">
+	<div className="flex w-fit flex-col items-center justify-center bg-red-500">
+		<Select.Root className="relative inline-flex w-fit min-w-40 flex-col gap-1 bg-amber-900">
+			<Select.Trigger
+				className="inline-flex h-12 items-center justify-center gap-2 rounded bg-white px-[15px] text-[13px] text-violet11 leading-none shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9"
+				aria-label={label}
+			>
+				<Select.Value placeholder={label} />
+				<Select.Icon className="text-violet11">
 					<ChevronDownIcon />
-				</Select.ScrollDownButton>
-			</Select.Content>
-		</Select.Portal>
-	</Select.Root>
+				</Select.Icon>
+			</Select.Trigger>
+			<Select.Portal className="flex gap-10 ">
+				<Select.Content className="overflow-hidden rounded-md bg-gray-300 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
+					<Select.ScrollUpButton className="flex h-6 cursor-default items-center justify-center text-violet11">
+						<ChevronUpIcon />
+					</Select.ScrollUpButton>
+					<Select.Viewport className="cursor-pointer p-[5px]">
+						<Select.Group className="flex flex-col gap-2">
+							<Select.Label className="px-[25px] text-white text-xs leading-[25px]">
+								{label}
+							</Select.Label>
+							{options?.map(({ id, label }) => (
+								<SelectItem
+									key={id}
+									value={label}
+									className=" cursor-pointer hover:bg-amber-600 focus:bg-amber-600"
+								>
+									{label}
+								</SelectItem>
+							))}
+						</Select.Group>
+					</Select.Viewport>
+					<Select.ScrollDownButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-violet11">
+						<ChevronDownIcon />
+					</Select.ScrollDownButton>
+				</Select.Content>
+			</Select.Portal>
+		</Select.Root>
+	</div>
 );
 
 DropDownSelect.propTypes = {
