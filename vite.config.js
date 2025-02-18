@@ -5,4 +5,8 @@ import { defineConfig } from "vite";
 // biome-ignore lint/style/noDefaultExport: <explanation>
 export default defineConfig({
 	plugins: [react(), tailwindcss()],
+	test: {
+		globals: true,
+		environment: "jsdom",
+	},
 });

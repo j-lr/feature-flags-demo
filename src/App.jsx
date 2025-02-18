@@ -6,10 +6,11 @@ import { Feature1 } from "./pages/feature1.jsx";
 import { Feature2 } from "./pages/feature2.jsx";
 import { Feature3 } from "./pages/feature3.jsx";
 
+const userSelectorLabel = "Select User";
 const App = () => {
 	return (
 		<>
-			<DropDownSelect label="Select user" options={users} />
+			<DropDownSelect label={userSelectorLabel} options={users} />
 			<div className="flex min-h-screen w-full flex-col gap-8 bg-black p-20 text-3xl text-white">
 				<Feature1 />
 				<Feature2 />
